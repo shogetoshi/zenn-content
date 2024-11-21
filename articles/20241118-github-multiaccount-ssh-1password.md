@@ -15,7 +15,7 @@ SSH設定で、HostNameで解決することができる。
 # 1Passwordでssh登録
 1PasswordでSSHキーを新規作成して行きます。
 
-![image.png](https://devio2024-2-media.developers.io/upload/4U3o45fAuZZUasz83nnvPk/2024-11-18/VNYVoql07Edt.png)
+![[Pasted image 20241119035515.png]]
 
 公開鍵をGitHubのSettingsから登録。
 
