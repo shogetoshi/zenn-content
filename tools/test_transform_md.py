@@ -9,6 +9,7 @@ import transform_md as target
         (["aaa\n", "\n", "bbb\n"], ["aaa\n", "\n", "bbb\n"]),
         (["## aaa\n", "bbb\n"], ["## aaa\n", "bbb\n"]),
         (["1. aaa\n", "bbb\n"], ["1. aaa\n", "bbb\n"]),
+        (["- aaa\n", "  - bbb\n"], ["- aaa\n", "  - bbb\n"]),
         (["aaa\n", "## bbb\n"], ["aaa\n", "## bbb\n"]),
         (
             ["```python\n", "aaa\n", "bbb\n", "```\n", "aaa\n", "bbb\n"],
@@ -32,6 +33,14 @@ def test_delete_newlines(lines, expected):
         (
             ["---\n", "title\n"],
             ["---\n", "title\n"],
+        ),
+        (
+            ["- aaa\n", "  - bbb\n"],
+            ["- aaa\n", "  - bbb\n"],
+        ),
+        (
+            ["- aaa\n", "  - bbb\n", "ccc\n"],
+            ["- aaa\n", "  - bbb\n", "\n", "ccc\n"],
         ),
     ],
 )
