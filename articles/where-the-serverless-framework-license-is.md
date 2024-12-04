@@ -4,7 +4,8 @@ emoji: 🐼
 type: tech
 topics:
   - Serverless Framework
-published: true
+
+published: false
 ---
 [Serverless Framework](https://www.serverless.com/) V4は有料のライセンスを購入して利用する形となります。
 

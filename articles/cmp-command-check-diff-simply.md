@@ -3,7 +3,7 @@ title: 差分の有無だけを確認するならcmpコマンドを使おう
 emoji: 🤗
 type: tech
 topics:
-  - bash
+  - Bash
 published: true
 ---
 2つのファイルに差分があるかないかで条件を分けたいときは結構あります。 その時に`cmp`コマンドが便利でした。
