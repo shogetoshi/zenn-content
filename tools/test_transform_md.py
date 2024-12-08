@@ -12,6 +12,10 @@ import transform_md as target
         (["- aaa\n", "  - bbb\n"], ["- aaa\n", "  - bbb\n"]),
         (["aaa\n", "## bbb\n"], ["aaa\n", "## bbb\n"]),
         (
+            ["aaa\n", "![](https://example.com/bbb)\n"],
+            ["aaa\n", "![](https://example.com/bbb)\n"],
+        ),
+        (
             ["```python\n", "aaa\n", "bbb\n", "```\n", "aaa\n", "bbb\n"],
             ["```python\n", "aaa\n", "bbb\n", "```\n", "aaa ", "bbb\n"],
         ),
