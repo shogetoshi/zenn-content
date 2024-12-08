@@ -46,7 +46,8 @@ $ yo code
 ```
 今回は素直に`New Extension (TypeScript)`を選びます。 名前を聞かれるので、`SampleExtension`とします。 他はEnterを連打で進めました。
 
-Gitリポジトリの中に書くファイルが作られ、VSCodeが開きます。 ![[Pasted image 20241205231928.png]]
+Gitリポジトリの中に書くファイルが作られ、VSCodeが開きます。
+![](https://raw.githubusercontent.com/shogetoshi/obsidian/refs/heads/master/99_Asset/PastedImage20241205231928.png)
 ### 実装
 `src/extension.ts`の中身を以下のように書きます。
 ```typescript:src/extensions.ts
