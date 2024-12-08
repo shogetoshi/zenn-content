@@ -27,10 +27,12 @@ def delete_newline(lines):
         if in_code:
             new_lines.append(curr_line)
         else:
-            if re.match(r"(#+ |\s*- |\s*\* |\s*\d+\. |https?://\S+\s*$)", curr_line):
+            if re.match(
+                r"(#+ |\s*- |\s*\* |\s*\d+\. |https?://\S+\s*$|!\[)", curr_line
+            ):
                 new_lines.append(curr_line)
             elif re.match(
-                r"(#+ |\s*- |\s*\* |\s*\d+\. |```|https?://\S+\s*$)", next_line
+                r"(#+ |\s*- |\s*\* |\s*\d+\. |```|https?://\S+\s*$|!\[)", next_line
             ):
                 new_lines.append(curr_line)
             else:
@@ -55,7 +57,7 @@ def insert_newline(lines):
             if re.match(r"(\s*- |\s*\* |\s*\d+\. )", curr_line):
                 new_lines.append(curr_line)
                 if not re.match(
-                    r"(#+ |\s*- |\s*\* |\s*\d+\. |```|https?://\S+\s*$)", next_line
+                    r"(#+ |\s*- |\s*\* |\s*\d+\. |```|https?://\S+\s*$|!\[)", next_line
                 ):
                     new_lines.append("\n")
             else:
