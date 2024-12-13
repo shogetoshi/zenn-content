@@ -5,7 +5,7 @@ type: tech
 topics:
   - VisualStudioCode
 
-published: false
+published: true
 ---
 VSCodeの拡張機能を作る方法を一通りやってみました。 基本的にLLMに聞いた通りにやったらできたという内容ですが、 自分の備忘録として必要十分な内容を記述していきたいと思います。
 
