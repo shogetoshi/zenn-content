@@ -28,11 +28,11 @@ def delete_newline(lines):
             new_lines.append(curr_line)
         else:
             if re.match(
-                r"(#+ |\s*- |\s*\* |\s*\d+\. |https?://\S+\s*$|!\[)", curr_line
+                r"(#+ |\s*- |\s*\* |\s*\d+\. |https?://\S+\s*$|!\[|:::)", curr_line
             ):
                 new_lines.append(curr_line)
             elif re.match(
-                r"(#+ |\s*- |\s*\* |\s*\d+\. |```|https?://\S+\s*$|!\[)", next_line
+                r"(#+ |\s*- |\s*\* |\s*\d+\. |```|https?://\S+\s*$|!\[|:::)", next_line
             ):
                 new_lines.append(curr_line)
             else:

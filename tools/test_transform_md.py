@@ -23,6 +23,10 @@ import transform_md as target
             ["```aaa\n", "https://www.google.co.jp \n", "bbb\n"],
             ["```aaa\n", "https://www.google.co.jp \n", "bbb\n"],
         ),
+        (
+            ["aaa\n", ":::messages\n", "bbb\n", "ccc\n", ":::\n", "ddd\n"],
+            ["aaa\n", ":::messages\n", "bbb ", "ccc\n", ":::\n", "ddd\n"],
+        ),
     ],
 )
 def test_delete_newlines(lines, expected):
