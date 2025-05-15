@@ -10,8 +10,8 @@ function copy() {
         for path in "$SOURCE_DIR"/*; do
             basename=$(basename "$path")
             sync="${BASE_DIR}/sync/${basename}"
-            dest="${BASE_DIR}/articles/${basename#*-}"
             if ! cmp -s ${path} ${sync}; then
+                dest="${BASE_DIR}/articles/${basename#*-}"
                 echo sync ${path} to ${dest}
                 cp ${path} ${sync}
                 cat ${sync} | python ${BASE_DIR}/tools/transform_md.py > ${dest}
