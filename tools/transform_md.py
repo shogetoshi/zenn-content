@@ -28,11 +28,11 @@ def delete_newline(lines):
             new_lines.append(curr_line)
         else:
             if re.match(
-                r"(#+ |\s*- |\s*\* |\s*\d+\. |https?://\S+\s*$|!\[)", curr_line
+                r"(#+ |\s*- |\s*\* |\s*\d+\. |https?://\S+\s*$|!\[|:::)", curr_line
             ):
                 new_lines.append(curr_line)
             elif re.match(
-                r"(#+ |\s*- |\s*\* |\s*\d+\. |```|https?://\S+\s*$|!\[)", next_line
+                r"(#+ |\s*- |\s*\* |\s*\d+\. |```|https?://\S+\s*$|!\[|:::)", next_line
             ):
                 new_lines.append(curr_line)
             else:
@@ -84,11 +84,37 @@ def adjust_heading(lines):
     return new_lines
 
 
+def treat_image(lines):
+    new_lines = []
+    for i in range(len(lines)):
+        line = lines[i]
+        new_line = re.sub(r"\!\[\[([^\]]+)\]\]", r"![\1](/images/link/\1)", line)
+        new_lines.append(new_line)
+    return new_lines
+
+
+def treat_devio(lines):
+    devio_lines = [line for line in lines if line.startswith("devio: ")]
+    if len(devio_lines) == 0:
+        return lines
+    devio_line = devio_lines[0]
+    if devio_line.rstrip("\n") == "devio: true":
+        for i in range(len(lines)):
+            if lines[i].startswith("title: "):
+                lines[i] = f"title: 【DevIO】{lines[i][7:]}\n"
+                print(lines[i], file=sys.stderr)
+                break
+    return lines
+
+
 if __name__ == "__main__":
     lines = sys.stdin.readlines()
 
     lines = delete_newline(lines)
     lines = insert_newline(lines)
     lines = adjust_heading(lines)
+    lines = treat_image(lines)
+
+    lines = treat_devio(lines)
 
     print("".join(lines))
